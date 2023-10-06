@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: #6E96DB;
-}
 
 nav {
     background-color: white;
@@ -41,4 +38,8 @@ nav {
     border-color: #6E96DB;
     border-radius: 11px;
     font-family: 'nico moji';
+}
+
+.bubbleWords {
+    color: #6E96DB;
 }
