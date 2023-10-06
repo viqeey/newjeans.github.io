@@ -78,6 +78,16 @@ nav {
     height: 100px;
 }
 
+.title1 {
+    color: #39397A;
+    font-weight: bold;
+}
+
+.title2 {
+    color: #6E96DB;
+    font-weight: bold;
+}
+
 
 .containerColor, .bigContainerColor {
     height: 250px;
