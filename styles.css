@@ -22,6 +22,11 @@ nav {
 }
 
 @font-face {
+    font-family: 'jetbrains mono';
+    src: url('./components/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
     font-family: 'nico moji';
     src: url('./components/NicoMoji.ttf');
 }
