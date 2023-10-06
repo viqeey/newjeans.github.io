@@ -56,3 +56,12 @@ nav {
 .bubbleWords {
     color: #6E96DB;
 }
+
+.containerColor {
+    background-color: #6E96DB;
+    border: 4px solid #39397A;
+}
+
+.containerColor, .bigContainerColor {
+    height: 250px;
+}
