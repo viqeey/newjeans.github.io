@@ -45,12 +45,11 @@ nav {
     position: relative;
     display: inline-block;
     text-align: left;
-    margin: 100px 200px 100px 200px;
     background-color: white;
-    width: 100%;
-    padding: 8px 15px 8px 15px;
+    width: 80%;
+    padding: 10px 25px 10px 25px;
     border-color: rgba(99, 86, 86, 0.5);
-    border-radius: 5px;
+    border-radius: 20px;
     font-family: 'jetbrains mono';
 }
 
