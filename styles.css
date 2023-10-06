@@ -40,11 +40,6 @@ nav {
     font-family: 'nico moji';
 }
 
-<<<<<<< Updated upstream
-.bubbleWords {
-    color: #6E96DB;
-}
-=======
 .inputBubbles {
     color: rgba(99, 86, 86, 0.5);
     position: relative;
@@ -58,4 +53,7 @@ nav {
     border-radius: 5px;
     font-family: 'jetbrains mono';
 }
->>>>>>> Stashed changes
+
+.bubbleWords {
+    color: #6E96DB;
+}
