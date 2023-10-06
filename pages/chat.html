@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+        <table class="table w-75 mx-auto">
+            <tbody>
+                <tr>
+                    <th class="font-weight-bold col-2">NickName</th>
+                    <td> <input type="text" id="nickName">
+                        <span id="noneElement" class="d-none text-danger">Must be at least 3 characters</span>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <th class="font-weight-bold col-2">Chat</th>
+                    <td> <input type="text" id="chat">
+                        <input class="ms-1 btn btn-primary" type="button" value="Send" onclick="sendMessage()">
+                        <div class="font-italic"><span id="chatLength">0</span>/ 100</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+</body>
+
+<script>
+    const tBody = document.getElementsByTagName("tbody")[0];
+    const nickName = document.getElementById("nickName");
+    const chat = document.getElementById("chat");
+    const chatLength = document.getElementById("chatLength");
+    const table = document.getElementsByTagName("table")[0];
+
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+
+
+    nickName.value = `anonymous${(Math.round(Math.random() * 100000)).toString().slice(0,5)}`;
+
+    nickName.addEventListener("input", () => {
+            if (nickName.value.length < 3) {
+                document.getElementById("noneElement").classList.remove("d-none");
+            } else {
+                document.getElementById("noneElement").classList.add("d-none");
+            }
+        });
+
+    chat.addEventListener("input", () => {
+        chatLength.innerText = chat.value.length;
+    });
+
+    function replacer(word) {
+        return word.replace(/[&<>"']/g, (m) => {
+            return map[m];
+        });
+    }
+
+    function sendMessage() {
+        axios.get('./server/chat.php', {
+            params: {
+                nickname: nickName.value,
+                text: chat.value
+            }
+        }).then(() => {
+            setTimeout(2000);
+            loadValues();
+        }
+        );
+    }
+
+        
+    window.onload = (event) => loadValues();
+
+    setInterval(loadValues, 1000);
+
+    function loadValues() {
+        axios.get('./server/chat.php', {}).then((values) => {
+            if(table.rows.length != values.data.length) { 
+
+                if (table.rows.length != 2) {
+                    while (table.rows.length > 2) {
+                        table.deleteRow(0);
+                    }
+                }
+                
+                values.data.forEach(element => {
+                    let row = document.createElement("tr");
+                    let header = document.createElement("th");
+                    let data = document.createElement("td");
+
+                    let who = element["who"];
+                    who.textContent = who;
+
+                    let text = element["text"];
+                    text.textContent = text;
+
+                    header.classList.add("col-2")
+                    
+                    header.innerText = who;
+                    header.classList.add("font-weight-bold");
+                    data.innerText = text;
+                    row.append(header)
+                    row.append(data);
+                    tBody.prepend(row)
+                });
+            }
+        })
+    }
+</script>
+</html>
