@@ -24,9 +24,13 @@ nav {
 }
 
 @font-face {
+    font-family: 'jetbrains mono';
+    src: url('./components/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
     font-family: 'nico moji';
     src: url('./components/NicoMoji.ttf');
-    font-family: 'JetBrains Mono';
 }
 
 .bubbleLabels {
@@ -64,6 +68,16 @@ nav {
     background-color: #6E96DB;
     border: 4px solid #39397A;
 }
+
+.containerColor2 {
+    border: 4px solid #39397A;
+    color: #39397A
+}
+
+.space {
+    height: 100px;
+}
+
 
 .containerColor, .bigContainerColor {
     height: 250px;
