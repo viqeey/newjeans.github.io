@@ -1,4 +1,23 @@
-.cbbl {
+.cbbl  {
+  background-color: rgba(110, 150, 219, 0.5);
+  color: black;
+  font-family: 'jetbrains mono';
+  position: relative;
+  display: inline-block;
+  padding: 6px 10px 6px 10px;
+  margin: 10px 9px 29px 6px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0.5px 2px rgba(0, 0, 0, 0.2);
+  font-size: 10px;
+}
+
+@font-face {
+  font-family: 'jetbrains mono';
+  src: url('./JetBrainsMono-Regular.ttf');
+}
+
+/* .cbbl {
   position: relative;
   display: inline-block;
   margin: 10px 9px 29px 6px;
@@ -105,4 +124,4 @@
 }
 .cbbl.-control:active {
   transform: scale(0.95);
-}
+} */
