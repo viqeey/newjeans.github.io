@@ -33,6 +33,12 @@ nav {
     src: url('./components/NicoMoji.ttf');
 }
 
+@font-face {
+    font-family: 'rubik bubbles';
+    src: url('./components/RubikBubbles-Regular.ttf');
+}
+
+
 .bubbleLabels {
     color: #6E96DB;
     position: relative;
