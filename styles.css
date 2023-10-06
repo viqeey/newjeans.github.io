@@ -31,7 +31,6 @@ nav {
 @font-face {
     font-family: 'nico moji';
     src: url('./components/NicoMoji.ttf');
-    font-family: 'JetBrains Mono';
 }
 
 .bubbleLabels {
